@@ -23,6 +23,7 @@ class PubSubPlusBroker {
     this.sPublishTopic = connectOptions.sPublishTopic;
     this.sSubscribeTopic = connectOptions.sSubscribeTopic;
     this.sReceiveQueue = connectOptions.sReceiveQueue;
+    this.hue = Math.random(0, 360);
 
     /*Topic Subscriber Parameters*/
     this.BLOCK_SUBSCRIBER_TIMEOUT_MS = 10000;
@@ -150,7 +151,7 @@ class PubSubPlusBroker {
       var message = solace.SolclientFactory.createMessage();
       message.setDestination(solace.SolclientFactory.createTopicDestination(this.sPublishTopic));
       message.setDeliveryMode(solace.MessageDeliveryModeType.DIRECT);
-      message.setBinaryAttachment(sBody);
+      message.setBinaryAttachment(this.hue + ";" + sBody);
 
       console.debug("Publishing message " + sBody + " to topic " + this.sPublishTopic);
 
@@ -219,6 +220,8 @@ class PubSubPlusBroker {
     this.broker.session.on(solace.SessionEventCode.SUBSCRIPTION_OK, (sessionEvent) => {
       oResultCallback(true, "Successfully subscribed to " + sTopic);
       console.debug("Successfully subscribed to " + sTopic);
+
+      this.publish("[User Connected]");
     });
 
     //What to do when a sub fails

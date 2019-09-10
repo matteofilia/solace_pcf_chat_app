@@ -41,8 +41,12 @@ var broker = new PubSubPlusBroker();
 
   //handles messages pulled from the broker
   function messageHandler(sMessage) {
+    var hue = sMessage.slice(0, sMessage.search(";"));
+    sMessage = sMessage.slice(sMessage.search(";")+1, sMessage.length);
+    console.log("Hue for this connected user is: " + hue);
+
     console.debug("message handler called with text: " + sMessage);
-    updateChatArea(sMessage);
+    updateChatArea(sMessage, hue);
 
     return;
   }
@@ -50,8 +54,7 @@ var broker = new PubSubPlusBroker();
   /***HELPER METHODS***/
   //updates the chat window with new text
   function updateChatArea(sText) {
-    var sCurrentText = $("#chatArea").val() + "\n" + sText;
-    $("#chatArea").val(sCurrentText);
+    $("#chatArea").append("<p class=\"message\" style=\"color: hsl("+hue+", 75%, 40%)\">"+sText+"</p>");
   }
 
 
