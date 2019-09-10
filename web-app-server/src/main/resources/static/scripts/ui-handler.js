@@ -54,7 +54,7 @@ var broker = new PubSubPlusBroker();
   /***HELPER METHODS***/
   //updates the chat window with new text
   function updateChatArea(sText, hue) {
-    $("#chatArea").append("<p class=\"message\" style=\"color: hsl("+hue+", 75%, 40%); background-color: hsl("+hue+", 75%, 90%)\">"+sText+"</p>");
+    $("#chatArea").append("<p class=\"message\" style=\"color: hsl("+hue+", 100%, 30%); background-color: hsl("+hue+", 90%, 75%)\">"+sText+"</p>");
   }
 
 
