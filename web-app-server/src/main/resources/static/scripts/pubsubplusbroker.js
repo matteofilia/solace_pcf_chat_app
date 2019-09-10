@@ -23,7 +23,7 @@ class PubSubPlusBroker {
     this.sPublishTopic = connectOptions.sPublishTopic;
     this.sSubscribeTopic = connectOptions.sSubscribeTopic;
     this.sReceiveQueue = connectOptions.sReceiveQueue;
-    this.hue = Math.random(0, 360);
+    this.hue = Math.random() * 360;
 
     /*Topic Subscriber Parameters*/
     this.BLOCK_SUBSCRIBER_TIMEOUT_MS = 10000;

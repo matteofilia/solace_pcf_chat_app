@@ -53,8 +53,8 @@ var broker = new PubSubPlusBroker();
 
   /***HELPER METHODS***/
   //updates the chat window with new text
-  function updateChatArea(sText) {
-    $("#chatArea").append("<p class=\"message\" style=\"color: hsl("+hue+", 75%, 40%)\">"+sText+"</p>");
+  function updateChatArea(sText, hue) {
+    $("#chatArea").append("<p class=\"message\" style=\"color: hsl("+hue+", 75%, 40%); background-color: hsl("+hue+", 75%, 90%)\">"+sText+"</p>");
   }
 
 
@@ -83,7 +83,7 @@ var broker = new PubSubPlusBroker();
       console.debug("Caught send button event");
   
       //the text that the user just typed.
-      var sChatText = $("#chatUser").text() + ":" + $("#chatInput").val();
+      var sChatText = $("#chatUser").text() + ": " + $("#chatInput").val();
   
       console.debug(sChatText);
   
