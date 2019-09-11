@@ -55,6 +55,7 @@ var broker = new PubSubPlusBroker();
   //updates the chat window with new text
   function updateChatArea(sText, hue) {
     $("#chatArea").append("<p class=\"message\" style=\"color: hsl("+hue+", 100%, 30%); background-color: hsl("+hue+", 90%, 75%)\">"+sText+"</p>");
+    $("#chatArea")[0].scrollTop = $("#chatArea")[0].scrollHeight;
   }
 
 

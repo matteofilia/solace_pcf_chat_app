@@ -16,6 +16,10 @@ public class HashMapCredentialRepository implements ICredentialsRepository {
         credentialsMap.put("ValidUser","solace");
         credentialsMap.put("SolaceUser","solace");
         credentialsMap.put("TestUser","solace");
+        credentialsMap.put("Matteo", "solace");
+        credentialsMap.put("Rohan", "solace");
+        credentialsMap.put("Philippe", "solace");
+        credentialsMap.put("User", "solace");
     }
 
     @Override

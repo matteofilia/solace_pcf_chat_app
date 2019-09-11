@@ -1,0 +1,14 @@
+---
+applications:
+- name: matteo-chat
+  path: web-app-server/target/web-app-server-0.0.1-SNAPSHOT.jar
+  memory: 1G
+  services:
+  - solace-pubsub-sample-instance
+- name: matteo-chat-auth
+  path: auth-server/target/auth-server-0.0.1-SNAPSHOT.jar
+  no-route: true
+  health-check-type: process
+  memory: 1G
+  services:
+  - solace-pubsub-sample-instance

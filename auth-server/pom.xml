@@ -48,6 +48,26 @@
             <artifactId>solace-chat-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
+        </dependency>
+
+        <dependency>
+           <groupId>com.solace.spring.boot</groupId>
+           <artifactId>solace-java-spring-boot-starter</artifactId>
+           <version>3.1.0</version>
+       </dependency>
+
+        <dependency>
+            <groupId>com.solace.cloud.core</groupId>
+            <artifactId>solace-services-info</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
