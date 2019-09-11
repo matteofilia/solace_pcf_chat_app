@@ -65,33 +65,22 @@ public class LoginMessageReplier {
         // Note: In other samples, a common method is used to create the Sessions.
         // However, to emphasize the most basic properties for Session creation,
         // this method is directly included in this sample.
-        try {
-            // Load environment configuration from cloud foundry
-            String vcapServices = System.getenv("VCAP_SERVICES");
-            if (vcapServices == null || vcapServices.length() == 0 || vcapServices.equals("{}")) {
-                throw new Exception("VCAP_SERVICES environment variable does not exist or is empty");
-            } else {
-                JSONObject pubsubCredentials = new JSONObject(vcapServices)
-                    .getJSONArray("solace-pubsub")
-                    .getJSONObject(0)
-                    .getJSONObject("credentials");
-                solaceUsername = pubsubCredentials.getString("clientUsername");
-                solacePassword = pubsubCredentials.getString("clientPassword");
-                solaceVpn = pubsubCredentials.getString("msgVpnName");
-                solaceHost = pubsubCredentials
-                    .getJSONArray("smfHosts")
-                    .getString(0);
 
-                System.out.println("******************* PubSub+ CONFIGURATION *******************");
-                System.out.println(solaceUsername);
-                System.out.println(solacePassword);
-                System.out.println(solaceVpn);
-                System.out.println(solaceHost);
-            }
-        } catch (Exception e) {
-            System.out.println("Error! Could not get environment configuration settings for Solace PubSub+ service");
-            System.out.println(e.getLocalizedMessage());
-            System.exit(0);
+        String vcapServices = System.getenv("VCAP_SERVICES");
+        if (vcapServices == null || vcapServices.length() == 0 || vcapServices.equals("{}")) {
+            // Do nothing, configuration was loaded already from application.properties
+        } else {
+            // Load environment configuration from cloud foundry
+            JSONObject pubsubCredentials = new JSONObject(vcapServices)
+                .getJSONArray("solace-pubsub")
+                .getJSONObject(0)
+                .getJSONObject("credentials");
+            solaceUsername = pubsubCredentials.getString("clientUsername");
+            solacePassword = pubsubCredentials.getString("clientPassword");
+            solaceVpn = pubsubCredentials.getString("msgVpnName");
+            solaceHost = pubsubCredentials
+                .getJSONArray("smfHosts")
+                .getString(0);
         }
 
         try {

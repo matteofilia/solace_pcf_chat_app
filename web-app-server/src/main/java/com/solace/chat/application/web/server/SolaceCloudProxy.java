@@ -55,9 +55,6 @@ public class SolaceCloudProxy {
     //HttpHeader for the http post
     private HttpHeaders httpHeaders;
 
-    @Autowired
-    SolaceServiceCredentials serviceCredentials;
-
     //Setting up the header for the Solace Request
     @PostConstruct
     public void init() {
