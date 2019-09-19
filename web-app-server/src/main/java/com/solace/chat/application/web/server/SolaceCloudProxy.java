@@ -38,16 +38,16 @@ public class SolaceCloudProxy {
     Gson gson = new Gson();
 
     //Properties are read from resources/application.properties
-    @Value("${solace.rest.host}")
+    @Value("${solace.rest.host:}")
     private String solaceRESTHost;
 
-    @Value("${solace.username}")
+    @Value("${solace.username:}")
     private String solaceUsername;
 
-    @Value("${solace.password}")
+    @Value("${solace.password:}")
     private String solacePassword;
 
-    @Value("${solace.vpn}")
+    @Value("${solace.vpn:}")
     private String solaceVPN;
 
     private String solaceWebMessagingHost;

@@ -39,16 +39,16 @@ public class LoginMessageReplier {
     private SpringJCSMPFactory solaceFactory;
 
     //The solace specific properties are defined within application.properties
-    @Value("${solace.host}")
+    @Value("${solace.host:}")
     private String solaceHost;
 
-    @Value("${solace.username}")
+    @Value("${solace.username:}")
     private String solaceUsername;
 
-    @Value("${solace.password}")
+    @Value("${solace.password:}")
     private String solacePassword;
 
-    @Value("${solace.vpn}")
+    @Value("${solace.vpn:}")
     private String solaceVpn;
 
     //A Solace session object
