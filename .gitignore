@@ -35,4 +35,5 @@ src/main/resources/static/resources/application-properties.js
 src/main/resources/application.properties
 */src/main/resources/static/lib/
 */src/main/resources/static/resources/application-properties.js
+*/src/main/resources/static/resources/application-properties-local.js
 */src/main/resources/application.properties
